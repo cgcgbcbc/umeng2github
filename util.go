@@ -23,7 +23,7 @@ type Record struct {
 }
 
 // read umeng file, need convert utf16-le(with bom) to utf8
-func ReadFile(path string) (reader io.Reader, err error) {
+func readFile(path string) (reader io.Reader, err error) {
 	e := unicode.UTF16(unicode.LittleEndian, unicode.ExpectBOM)
 	file, err := os.Open(path)
 

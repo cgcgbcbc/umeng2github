@@ -159,7 +159,7 @@ java.lang.NullPointerException	8	2015-06-10 09:21:43	3.0.3	"java.lang.NullPointe
 }
 
 func TestReadFile(t *testing.T) {
-	file, err := ReadFile(filepath.Join("fixtures", "test.csv"))
+	file, err := readFile(filepath.Join("fixtures", "test.csv"))
 	assert.NoError(t, err)
 	content, err := ioutil.ReadAll(file)
 	assert.NoError(t, err)
@@ -177,7 +177,7 @@ func TestReadFile(t *testing.T) {
 	assert.Equal(t, 3, fieldColumnIndex[3])
 	assert.Equal(t, 4, fieldColumnIndex[4])
 
-	file, err = ReadFile(filepath.Join("fixtures", "test.csv"))
+	file, err = readFile(filepath.Join("fixtures", "test.csv"))
 	assert.NoError(t, err)
 
 	results, err := readReport(file)
