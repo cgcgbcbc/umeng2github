@@ -150,7 +150,7 @@ java.lang.NullPointerException	8	2015-06-10 09:21:43	3.0.3	"java.lang.NullPointe
 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:680)
 	at dalvik.system.NativeStart.main(Native Method)
 "`
-	results, err := ReadReport(strings.NewReader(fixture))
+	results, err := readReport(strings.NewReader(fixture))
 	assert.NoError(t, err)
 	assert.NotNil(t, results)
 	assert.Equal(t, 1, len(results))
@@ -181,7 +181,7 @@ func TestReadFile(t *testing.T) {
 	file, err = ReadFile(filepath.Join("fixtures", "test.csv"))
 	assert.NoError(t, err)
 
-	results, err := ReadReport(file)
+	results, err := readReport(file)
 	assert.NoError(t, err)
 	assert.NotNil(t, results)
 	assert.Equal(t, 1, len(results))

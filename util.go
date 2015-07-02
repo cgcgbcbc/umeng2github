@@ -12,12 +12,13 @@ import (
 	"golang.org/x/text/transform"
 )
 
+// Record represents an umeng error record
 type Record struct {
 	Title       string    `csv:"错误摘要"`
 	Count       int       `csv:"发生次数"`
 	FirstDate   time.Time `csv:"首次发生时间" format:"2006-01-02 03:04:05"`
 	Version     string    `csv:"版本"`
-	StrackTrace string    `csv:"错误详情"`
+	StackTrace string    `csv:"错误详情"`
 }
 
 // read umeng file, need convert utf16-le(with bom) to utf8
@@ -33,7 +34,7 @@ func ReadFile(path string) (reader io.Reader, err error) {
 	return
 }
 
-func ReadReport(input io.Reader) (result []Record, err error) {
+func readReport(input io.Reader) (result []Record, err error) {
 	reader := csv.NewReader(input)
 	reader.Comma = '\t'
 	reader.FieldsPerRecord = 5
