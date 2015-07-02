@@ -3,13 +3,14 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"golang.org/x/text/encoding/unicode"
-	"golang.org/x/text/transform"
 	"io"
 	"os"
 	"reflect"
 	"strconv"
 	"time"
+
+	"golang.org/x/text/encoding/unicode"
+	"golang.org/x/text/transform"
 )
 
 // Record represents an umeng error record

@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 type TestRecord struct {
