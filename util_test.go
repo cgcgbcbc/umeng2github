@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
+	"path/filepath"
+	"strings"
 	"testing"
 	"time"
-	"strings"
-	"path/filepath"
-	"io/ioutil"
 )
 
 type TestRecord struct {
@@ -175,8 +175,6 @@ func TestReadFile(t *testing.T) {
 	assert.Equal(t, 2, fieldColumnIndex[2])
 	assert.Equal(t, 3, fieldColumnIndex[3])
 	assert.Equal(t, 4, fieldColumnIndex[4])
-
-
 
 	file, err = ReadFile(filepath.Join("fixtures", "test.csv"))
 	assert.NoError(t, err)
