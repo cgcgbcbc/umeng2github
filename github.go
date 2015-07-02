@@ -27,13 +27,13 @@ func getClient(token string) *github.Client {
 	return github.NewClient(tc)
 }
 
-func (client GithubClient) CreateIssue(title,body string) (err error) {
+func (client GithubClient) CreateIssue(title,body string) (issue *github.Issue, err error) {
 	service := client.Issues
-	issue := github.IssueRequest{
-		Title: title,
-		Body: body,
-		Labels: []string{UmengLabel},
+	issueRequest := github.IssueRequest{
+		Title: &title,
+		Body: &body,
+		Labels: &[]string{UmengLabel},
 	}
-	_, err = service.Create(client.Owner, client.Repo, &issue)
+	issue, _, err = service.Create(client.Owner, client.Repo, &issueRequest)
 	return
 }
