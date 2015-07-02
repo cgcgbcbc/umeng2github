@@ -22,6 +22,15 @@ type Record struct {
 	StackTrace string    `csv:"错误详情"`
 }
 
+func ReadReport(path string) (result []Record, err error) {
+	file, err := readFile(path)
+	if err != nil {
+		return
+	}
+
+	return readReport(file)
+}
+
 // read umeng file, need convert utf16-le(with bom) to utf8
 func readFile(path string) (reader io.Reader, err error) {
 	e := unicode.UTF16(unicode.LittleEndian, unicode.ExpectBOM)
