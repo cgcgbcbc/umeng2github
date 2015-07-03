@@ -7,7 +7,7 @@ import (
 const DefaultBodyTemplate = `
 发生次数 | 首次发生时间 | 版本
 -----|-----|-----
-{{.Count}} | {{.FirstDate.Format "2006-01-02 03:04:05"}} | {{.Version}}
+{{.Count}} | {{.FirstDate.Format "2006-01-02 15:04:05"}} | {{.Version}}
 
 StackTrace:
 ` +
