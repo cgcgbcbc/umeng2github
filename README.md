@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/cgcgbcbc/umeng2github.svg?branch=master)](https://travis-ci.org/cgcgbcbc/umeng2github)
+[![Build Status](https://travis-ci.org/cgcgbcbc/umeng2github.svg?branch=master)](https://travis-ci.org/cgcgbcbc/umeng2github)
+
 # umeng2github
 
 import umeng error to github issues.
