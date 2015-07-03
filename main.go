@@ -62,10 +62,12 @@ func main() {
 				cli.StringFlag{
 					Name: "owner, o",
 					Usage: "owner of the repo to which the issues are created",
+					EnvVar: "OWNER",
 				},
 				cli.StringFlag{
 					Name: "repo, r",
 					Usage: "repo name to which the issues are created",
+					EnvVar: "REPO",
 				},
 			},
 			Usage: "import umeng error data csv to github",
@@ -110,7 +112,7 @@ func main() {
 
 						issue, err := client.CreateIssue(record.Title, body)
 						handleError(err)
-						fmt.Printf("issue #%d created at %s", *issue.Number, *issue.HTMLURL)
+						fmt.Printf("issue #%d created at %s\n", *issue.Number, *issue.HTMLURL)
 					}
 				}
 			},
