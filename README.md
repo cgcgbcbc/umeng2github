@@ -11,7 +11,7 @@ go get -u github.com/cgcgbcbc/umeng2github
 ## usage
 
 First you need to download error report from [umeng website](www.umeng.com), `www.umeng.com/apps/<appid>/error_types`,
-and click export button [Imgur](http://i.imgur.com/KlGso5U.png)
+and click export button ![Imgur](http://i.imgur.com/KlGso5U.png)
 
 Then you can change the status of exported errors to working.
 
