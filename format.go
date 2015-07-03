@@ -1,7 +1,8 @@
 package main
+
 import (
-	"text/template"
 	"bytes"
+	"text/template"
 )
 
 const DefaultBodyTemplate = `
@@ -11,7 +12,7 @@ const DefaultBodyTemplate = `
 
 StackTrace:
 ` +
-"```\n{{.StackTrace}}\n```"
+	"```\n{{.StackTrace}}\n```"
 
 func FormatRecord(record Record) (result string, err error) {
 	tmpl, err := template.New("").Parse(DefaultBodyTemplate)

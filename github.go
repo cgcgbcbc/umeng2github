@@ -1,4 +1,5 @@
 package main
+
 import (
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
@@ -7,14 +8,14 @@ import (
 type GithubClient struct {
 	*github.Client
 	Owner string
-	Repo string
+	Repo  string
 }
 
 func NewClient(token, owner, repo string) *GithubClient {
-	client :=  &GithubClient{
+	client := &GithubClient{
 		Client: getClient(token),
-		Owner: owner,
-		Repo: repo,
+		Owner:  owner,
+		Repo:   repo,
 	}
 	return client
 }
@@ -27,11 +28,11 @@ func getClient(token string) *github.Client {
 	return github.NewClient(tc)
 }
 
-func (client GithubClient) CreateIssue(title,body string) (issue *github.Issue, err error) {
+func (client GithubClient) CreateIssue(title, body string) (issue *github.Issue, err error) {
 	service := client.Issues
 	issueRequest := github.IssueRequest{
-		Title: &title,
-		Body: &body,
+		Title:  &title,
+		Body:   &body,
 		Labels: &[]string{UmengLabel},
 	}
 	issue, _, err = service.Create(client.Owner, client.Repo, &issueRequest)

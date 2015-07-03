@@ -1,10 +1,12 @@
 package main
+
 import (
-	"github.com/github/hub/git"
-	"github.com/github/hub/github"
 	"fmt"
 	"os"
+
 	"github.com/codegangsta/cli"
+	"github.com/github/hub/git"
+	"github.com/github/hub/github"
 )
 
 const (
@@ -36,7 +38,6 @@ func getOnwerRepo() (owner string, name string, err error) {
 	return project.Owner, project.Name, err
 }
 
-
 func handleError(err error) {
 	if err != nil {
 		fmt.Print(err)
@@ -55,22 +56,22 @@ func main() {
 			Name: "import",
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name: "token, k",
-					Usage: "github personal token to use, can also set in git config with github.token",
+					Name:   "token, k",
+					Usage:  "github personal token to use, can also set in git config with github.token",
 					EnvVar: "GITHUB_TOKEN",
 				},
 				cli.StringFlag{
-					Name: "owner, o",
-					Usage: "owner of the repo to which the issues are created",
+					Name:   "owner, o",
+					Usage:  "owner of the repo to which the issues are created",
 					EnvVar: "OWNER",
 				},
 				cli.StringFlag{
-					Name: "repo, r",
-					Usage: "repo name to which the issues are created",
+					Name:   "repo, r",
+					Usage:  "repo name to which the issues are created",
 					EnvVar: "REPO",
 				},
 			},
-			Usage: "import umeng error data csv to github",
+			Usage:       "import umeng error data csv to github",
 			Description: "The only argument is the filepath",
 			Action: func(c *cli.Context) {
 				token := c.String("token")

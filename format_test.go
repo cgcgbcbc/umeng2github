@@ -1,7 +1,8 @@
 package main
+
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 func ExampleFormatRecord() {
@@ -11,10 +12,10 @@ func ExampleFormatRecord() {
 		return
 	}
 	record := Record{
-		Title: "test",
-		Count: 2,
-		FirstDate: testDate,
-		Version: "0.1.0",
+		Title:      "test",
+		Count:      2,
+		FirstDate:  testDate,
+		Version:    "0.1.0",
 		StackTrace: "java.lang.NullPointerException",
 	}
 
