@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/cgcgbcbc/umeng2github.svg?branch=master)](https://travis-ci.org/cgcgbcbc/umeng2github)
-[![Build Status](https://travis-ci.org/cgcgbcbc/umeng2github.svg?branch=master)](https://travis-ci.org/cgcgbcbc/umeng2github)
+[![Coverage Status](https://coveralls.io/repos/cgcgbcbc/umeng2github/badge.svg?branch=master)](https://coveralls.io/r/cgcgbcbc/umeng2github?branch=master)
 
 # umeng2github
 
