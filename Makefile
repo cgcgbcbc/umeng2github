@@ -6,7 +6,7 @@ GOINSTALL=$(GOCMD) install
 GOCOV=gocov
 GOCOVREPORT=$(GOCOV) test | gocov-html > cover.html
 
-BINNAME=gorender
+BINNAME=umeng2github
 
 all:
 	$(GOBUILD) -o $(BINNAME)
