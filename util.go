@@ -93,11 +93,11 @@ func fillStruct(v interface{}, fieldColumnIndex map[int]int, data []string) (err
 			field.SetInt(int64(intValue))
 			break
 		case reflect.Struct:
-			structName := field.Type().Name()
-			switch structName {
+			structType := field.Type()
+			switch structType {
 			default:
 				return fmt.Errorf("not implemented type %s", field.Type().Name())
-			case reflect.TypeOf(time.Time{}).Name():
+			case reflect.TypeOf(time.Time{}):
 				timeField := reflectStruct.Type().Field(i)
 				timeFormat := timeField.Tag.Get("format")
 				if timeFormat == "" {
