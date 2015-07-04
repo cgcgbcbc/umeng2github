@@ -46,7 +46,6 @@ func handleError(err error) {
 }
 
 func main() {
-
 	app := cli.NewApp()
 	app.Name = "umeng2github"
 	app.Usage = "Import umeng error data which exported from umeng website as csv file to Github issues"
@@ -69,6 +68,11 @@ func main() {
 					Name:   "repo, r",
 					Usage:  "repo name to which the issues are created",
 					EnvVar: "REPO",
+				},
+				cli.BoolFlag{
+					Name:   "short",
+					Usage:  "make output short, i.e. report success only",
+					EnvVar: "SHORT",
 				},
 			},
 			Usage:       "import umeng error data csv to github",
@@ -104,6 +108,8 @@ func main() {
 
 				client := NewClient(token, owner, repo)
 
+				shortResultFlag := c.Bool("short")
+
 				for _, arg := range c.Args() {
 					report, err := ReadReport(arg)
 					handleError(err)
@@ -113,8 +119,14 @@ func main() {
 
 						issue, err := client.CreateIssue(record.Title, body)
 						handleError(err)
-						fmt.Printf("issue #%d created at %s\n", *issue.Number, *issue.HTMLURL)
+						if !shortResultFlag {
+							fmt.Printf("issue #%d created at %s\n", *issue.Number, *issue.HTMLURL)
+						}
 					}
+				}
+
+				if shortResultFlag {
+					fmt.Println("success")
 				}
 			},
 		},

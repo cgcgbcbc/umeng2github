@@ -6,9 +6,12 @@ import (
 )
 
 func ExampleMain() {
-	os.Setenv("owner", "cgcgbcbc")
-	os.Setenv("repo", "umeng2github-test")
-	args := []string{"import", filepath.Join("fixtures", "test.csv")}
-	os.Args = append(os.Args, args...)
+	os.Setenv("OWNER", "cgcgbcbc")
+	os.Setenv("REPO", "umeng2github-test")
+	os.Setenv("SHORT", "true")
+	args := []string{"umeng2github", "import", filepath.Join("fixtures", "test.csv")}
+	os.Args = args
 	main()
+	// Output:
+	// success
 }
